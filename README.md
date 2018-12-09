@@ -1,12 +1,12 @@
-#MediaContent
+# MediaContent
 
-##This is a media content feed project created with Django.
+## This is a media content feed project created with Django.
 
-##Description
+## Description
 It allows you to upload photos and videos, and then view them on the feed page 'Home'.
 Users can upload content from local machine or share it by Instagram post URL.
 
-##User has 2 roles:
+## User has 2 roles:
 1. Viewer
 2. Authenticated user
 
@@ -14,10 +14,10 @@ Viewer can review the content feed and the detailed page of the media content.
 Authenticated user can upload new content, share it from Instagram, edit and delete posts.
 In order to authenticate, users must create their account with 'Sign Up' or 'Log in', if the account already exists.
 
-##Cloud server
+## Cloud server
 Check this out on the cloud server [PythonAnywhere](<link>)
 
-##To run locally:
+## To run locally:
 
 Clone git repository
 ```git clone <link>```
