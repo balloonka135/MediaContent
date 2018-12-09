@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}Edit post{% endblock %}
+
+{% block content %}
+    <h2>Edit post</h2>
+    <div class="">
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Save changes" class="btn btn-primary btn-large">
+        </form>
+        <a href="{% url 'contentapp:delete_content' id=post.id %}" class="btn btn-danger" role="button">Delete</a>
+    </div>
+{% endblock %}

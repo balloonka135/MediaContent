@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}Upload file{% endblock %}
+
+{% block content %}
+    <h4>Upload file</h4>
+    <div class="">
+        <form method="post" action="{% url 'contentapp:upload_content' %}"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Post" class="btn btn-primary btn-large">
+        </form>
+    </div>
+{% endblock %}

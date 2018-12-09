@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-md-4">
+                    <a href="{% url 'contentapp:detail_content' id=post.id slug=post.slug %}"><h2>{{ post.title }}</h3></a>
+                    {% if post.check_file_extension == 'image' %}
+                        <img src="{{ MEDIA_URL }}{{ post.media_content }}" alt="">
+                    {% elif post.check_file_extension == 'video' %}
+                        <video width="320" height="240" controls>
+                            <source src="{{ MEDIA_URL }}{{ post.media_content }}" type="video/mp4">
+                        </video>
+                    {% else %}
+                        <div>{{ post.media_content }}</div>
+                    {% endif %}
+                   
+                    <h6>{{ post.pub_date }}</h6>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
