@@ -15,7 +15,7 @@ Authenticated user can upload new content, share it from Instagram, edit and del
 In order to authenticate, users must create their account with 'Sign Up' or 'Log in', if the account already exists.
 
 ## Cloud server
-Check this out on the cloud server [Heroku](<link>)
+Check this out on the cloud server [PythonAnywhere](http://balloonka135.pythonanywhere.com/)
 
 ## To run locally:
 
