@@ -6,10 +6,20 @@ from django.template.defaultfilters import slugify
 
 
 
-User = get_user_model()
+User = get_user_model()  # create User instance
 
 
 class ContentPost(models.Model):
+    '''
+    ContentPost class for creating content instances.
+    @user: User instance
+    @pub_date: Date of post publication
+    @title: Post title
+    @description: Post description
+    @slug: auto-generated slug
+    @media_content: file to upload (photo/video)
+    '''
+
     user = models.ForeignKey(User, related_name="photos", on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
     title = models.CharField(max_length=100)
@@ -28,6 +38,9 @@ class ContentPost(models.Model):
         super(ContentPost, self).save(*args, **kwargs)
 
     def check_file_extension(self):
+        '''
+        checks extension of the file to correctly display them in the template.
+        '''
         file_extension = os.path.splitext(self.media_content.name)[1]
         file_extension = file_extension.lower()
 

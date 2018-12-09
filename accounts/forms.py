@@ -3,6 +3,9 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserForm(UserCreationForm):
+    '''
+    Form for User creation.
+    '''
 
     class Meta:
         model = get_user_model()

@@ -19,6 +19,9 @@ def index(request):
 
 
 def detail_content(request, id, slug):
+    """
+    View function for detail post page.
+    """
     try:
         post = get_object_or_404(ContentPost, id=id, slug=slug)
     except ConnectionResetError:
@@ -30,6 +33,9 @@ def detail_content(request, id, slug):
 
 @login_required
 def edit_content(request, id, slug):
+    """
+    View function for editing post page.
+    """
     post = get_object_or_404(ContentPost, id=id, slug=slug)
     if request.method == 'POST':
         form = ContentPostForm(request.POST, request.FILES, instance=post)
@@ -48,6 +54,9 @@ def edit_content(request, id, slug):
 
 @login_required
 def delete_content(request, id):
+    """
+    View function to process post deletion.
+    """
     post = get_object_or_404(ContentPost, id=id)
     post.delete()
     return redirect(reverse('contentapp:index'))
@@ -55,6 +64,9 @@ def delete_content(request, id):
 
 @login_required
 def upload_content(request):
+    """
+    View function for uploading content.
+    """
     if request.method == 'POST':
         form = ContentPostForm(request.POST, request.FILES)
         if form.is_valid():
@@ -71,11 +83,13 @@ def upload_content(request):
 
 @login_required
 def share_insta_content(request):
+    """
+    View function for sharing insta-content by url.
+    """
     if request.method == 'POST':
         form = InstagramPhotoForm(request.POST)
         if form.is_valid():
             result = insta_content(form.cleaned_data['post_url'])
-
             if not result:
                return render(request, 'contentapp/error.html')
             else:
@@ -86,25 +100,3 @@ def share_insta_content(request):
     else:
         form = InstagramPhotoForm()
     return render(request, 'contentapp/share_content.html', {'form': form})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

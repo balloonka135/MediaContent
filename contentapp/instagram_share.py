@@ -6,11 +6,16 @@ from django.conf import settings
 
 
 def insta_content(url):
+    '''
+    connects to the instagram post by given URL argument.
+    downloads the content post image to the media/ dir.
+    returns content post data to create ContentPost instance.
+    '''
     L = instaloader.Instaloader()
     shortcode = url.split('/')[-2]
     try:
         post = instaloader.Post.from_shortcode(L.context, shortcode)
-    except QueryReturnedNotFoundException:
+    except instaloader.exceptions.InstaloaderException:
         return None
     else:
         title = post.profile
