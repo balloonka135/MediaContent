@@ -20,7 +20,7 @@ Check this out on the cloud server [PythonAnywhere](<link>)
 ## To run locally:
 
 Clone git repository
-```git clone <link>```
+```git clone https://github.com/balloonka135/MediaContent.git```
 
 Create virtualenv inside of the project and activate it
 ```
