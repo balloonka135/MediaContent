@@ -20,13 +20,9 @@ Check this out on the cloud server [PythonAnywhere](<link>)
 ## To run locally:
 
 Clone git repository
-<<<<<<< HEAD
 ```
 git clone https://github.com/balloonka135/MediaContent.git
 ```
-=======
-```git clone https://github.com/balloonka135/MediaContent.git```
->>>>>>> 0edc3cc10841960de045ce5cae7c2c3307a09100
 
 Create virtualenv inside of the project and activate it
 ```
