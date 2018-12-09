@@ -6,16 +6,16 @@
     <div class="container">
         <h3>{{ post.title }}</h3>
         {% if post.check_file_extension == 'image' %}
-            <img src="{{ MEDIA_URL }}{{ post.media_content }}" alt="">
+            <img src="{{ MEDIA_URL }}{{ post.media_content }}" alt="" style="width: 70%;">
         {% elif post.check_file_extension == 'video' %}
-            <video width="320" height="240" controls>
+            <video width="700" height="450" controls>
                 <source src="{{ MEDIA_URL }}{{ post.media_content }}" type="video/mp4">
             </video>
         {% else %}
             <div>{{ post.media_content }}</div>
         {% endif %}
         <p>{{ post.description}}</p>
-        <h6>Created: {{ post.pub_date }}</h6>
+        <h6 style="margin-top: 20px;">Created: {{ post.pub_date }}</h6>
         {% if request.user.is_authenticated %}
             <a href="{% url 'contentapp:edit_content' id=post.id slug=post.slug %}" class="btn btn-success" role="button">Edit</a>
         {% endif %}

@@ -4,8 +4,8 @@
 {% block title %}Upload file{% endblock %}
 
 {% block content %}
-    <h4>Upload file</h4>
-    <div class="">
+    <div class="" style="margin-left: 50px; width: 500px;">
+        <h2>Upload file</h2>
         <form method="post" action="{% url 'contentapp:upload_content' %}"  enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}

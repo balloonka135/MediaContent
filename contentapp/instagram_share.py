@@ -15,6 +15,7 @@ def insta_content(url):
     else:
         title = post.profile
         description = post.caption
+        pub_date = post.date
         post_url = post.url
 
         path = settings.MEDIA_ROOT
@@ -24,4 +25,4 @@ def insta_content(url):
         urllib.request.urlcleanup()
         urllib.request.urlretrieve(post_url, path + filename)
 
-        return [title, description, filename]
+        return [title, description, pub_date, filename]

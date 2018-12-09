@@ -4,12 +4,12 @@
 {% block title %}Edit post{% endblock %}
 
 {% block content %}
+    <div class="" style="margin-left: 50px; width: 500px;">
     <h2>Edit post</h2>
-    <div class="">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <input type="submit" value="Save changes" class="btn btn-primary btn-large">
+            <input type="submit" value="Save changes" class="btn btn-primary btn-large" style="margin-bottom: 20px;">
         </form>
         <a href="{% url 'contentapp:delete_content' id=post.id %}" class="btn btn-danger" role="button">Delete</a>
     </div>

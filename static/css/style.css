@@ -1,0 +1,9 @@
+.content-post {
+    width: 30%;
+    display: inline-block;
+}
+
+.post-img {
+    height: 100px;
+    width: 100px;
+}

@@ -130,6 +130,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
+
 MAX_IMAGE_SIZE = 500*1024*1024  # 500 MB
 
 LOGIN_REDIRECT_URL = '/'

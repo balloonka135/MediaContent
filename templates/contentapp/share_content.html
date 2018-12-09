@@ -3,8 +3,8 @@
 {% block title %}Share post{% endblock %}
 
 {% block content %}
-    <h2>Share post</h2>
-    <div class="">
+    <div class="" style="margin-left: 50px;">
+        <h2>Share post</h2>
         <form method="post" enctype="multipart/form-data" action="{% url 'contentapp:share_insta_content' %}">
             {% csrf_token %}
             <label for="post_url" class="">Instagram post URL:<span class="field_required"></span></label>

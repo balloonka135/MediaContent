@@ -19,7 +19,10 @@ def index(request):
 
 
 def detail_content(request, id, slug):
-    post = get_object_or_404(ContentPost, id=id, slug=slug)
+    try:
+        post = get_object_or_404(ContentPost, id=id, slug=slug)
+    except ConnectionResetError:
+        pass
     return render(request, 'contentapp/post_detail.html', {
         'post': post
     })
@@ -71,16 +74,15 @@ def share_insta_content(request):
     if request.method == 'POST':
         form = InstagramPhotoForm(request.POST)
         if form.is_valid():
-            title, description, content = insta_content(form.cleaned_data['post_url'])
-            # result = insta_content(form.cleaned_data['post_url'])
-            # print(result)
+            result = insta_content(form.cleaned_data['post_url'])
 
-            # if not result:
-            #     render('error.html')
-
-            post = ContentPost(user=request.user, title=title, description=description, media_content=content)
-            post.save()
-            return redirect(reverse('contentapp:index'))
+            if not result:
+               return render(request, 'contentapp/error.html')
+            else:
+                title, description, pub_date, content = result
+                post = ContentPost(user=request.user, title=title, description=description, pub_date=pub_date, media_content=content)
+                post.save()
+                return redirect(reverse('contentapp:index'))
     else:
         form = InstagramPhotoForm()
     return render(request, 'contentapp/share_content.html', {'form': form})
