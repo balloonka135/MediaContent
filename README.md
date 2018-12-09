@@ -20,7 +20,9 @@ Check this out on the cloud server [PythonAnywhere](<link>)
 ##To run locally:
 
 Clone git repository
-```git clone <link>```
+```
+git clone https://github.com/balloonka135/MediaContent.git
+```
 
 Create virtualenv inside of the project and activate it
 ```
@@ -29,10 +31,14 @@ sourve venv/bin/activate
 ```
 
 Run the requirements.txt to install python packages
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 Run the local server
-```python manage.py runserver```
+```
+python manage.py runserver
+```
 
 
 
